@@ -1,0 +1,30 @@
+class Solution{
+	public:
+	int evenGrouping(int n,int a[])
+	{
+		auto func = [&](int x){
+		    return log2(x) + 1;
+		};
+		stack<int>st;
+		for(int i = 0; i < n; ++i){
+		    
+		    a[i] = func(a[i]);
+		    
+		    if(!st.empty()){
+		        if(st.top() == a[i]){
+		        while(!st.empty() and st.top() == a[i]){
+		            st.pop();
+		        }
+		        continue;
+		        }
+		        
+		    }
+		    st.push(a[i]);
+		    
+		    
+		    
+		}
+		return st.size();
+		
+	}
+};
